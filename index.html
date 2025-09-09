@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3DVR Politics — No-Nonsense Civic Action</title>
+  <meta name="description" content="Take back our governments with people-first policies. Housing as a human right. Get money out of politics. Start at your city hall." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root{
+      --bg:#0c1117;
+      --card:#121826;
+      --ink:#e6edf3;
+      --muted:#9fb0c3;
+      --accent:#00ffc8;
+      --accent-2:#79ffe1;
+      --danger:#ff6b6b;
+      --ok:#48e5a9;
+      --link:#7aa2ff;
+      --ring:0 0 0 3px rgba(0,255,200,.25);
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.45);
+      --gradient:linear-gradient(135deg,#00ffc8 0%,#7aa2ff 100%);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; background:radial-gradient(1200px 600px at 10% -10%, #0f1623 0%, #0c1117 40%), var(--bg);
+      color:var(--ink); font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      line-height:1.6;
+    }
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1100px; margin:0 auto; padding:0 1.2rem}
+    /* NAV */
+    nav{
+      position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(10px);
+      background:rgba(12,17,23,.6); border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    nav .bar{display:flex; align-items:center; justify-content:space-between; padding:.8rem 0}
+    .brand{display:flex; gap:.6rem; align-items:center; font-weight:800; letter-spacing:.3px}
+    .brand i{color:var(--accent)}
+    .navlinks{display:flex; gap:1rem; flex-wrap:wrap}
+    .navlinks a{padding:.45rem .8rem; border-radius:999px; color:var(--ink)}
+    .navlinks a:hover{background:rgba(255,255,255,.06)}
+    .cta{
+      background:var(--gradient); color:#001014; border:none; border-radius:999px; padding:.6rem 1rem; font-weight:700;
+      box-shadow:var(--shadow); cursor:pointer
+    }
+    .cta:focus-visible{outline:none; box-shadow:var(--ring)}
+    /* HERO */
+    .hero{padding:4rem 0 3rem; text-align:center}
+    .kicker{color:var(--accent); font-weight:700; letter-spacing:.12em; text-transform:uppercase; font-size:.9rem}
+    h1{font-family:Poppins, Inter, sans-serif; font-size:clamp(2rem, 4vw, 3rem); line-height:1.15; margin:.5rem 0 1rem}
+    .lead{color:var(--muted); max-width:800px; margin:0 auto 1.6rem}
+    .hero .actions{display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; gap:.55rem; font-weight:700; border-radius:999px; padding:.75rem 1.1rem; border:1px solid rgba(255,255,255,.12);
+      background:var(--card); color:var(--ink)
+    }
+    .btn:hover{border-color:rgba(255,255,255,.25)}
+    .btn.primary{background:var(--gradient); color:#001014; border:none}
+    .badge{
+      display:inline-flex; align-items:center; gap:.45rem; padding:.35rem .7rem; border-radius:999px; background:rgba(0,255,200,.12); color:var(--accent); font-size:.85rem; font-weight:700
+    }
+    /* SECTIONS */
+    section{padding:2.6rem 0}
+    .grid{display:grid; gap:1.2rem}
+    @media(min-width:860px){ .grid.cols-3{grid-template-columns:repeat(3,1fr)} .grid.cols-2{grid-template-columns:repeat(2,1fr)} }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)) , var(--card);
+      border:1px solid rgba(255,255,255,.07); border-radius:var(--radius); padding:1.2rem; box-shadow:var(--shadow)
+    }
+    .card h3{margin:.3rem 0 .4rem; font-family:Poppins, Inter, sans-serif}
+    .card p{color:var(--muted)}
+    .tag{display:inline-block; font-size:.8rem; color:var(--muted); border:1px solid rgba(255,255,255,.12); padding:.2rem .5rem; border-radius:999px}
+    /* ACCORDION */
+    .accordion .item{border:1px solid rgba(255,255,255,.08); border-radius:14px; overflow:hidden; background:var(--card)}
+    .accordion button{
+      width:100%; text-align:left; background:none; border:none; color:var(--ink); padding:1rem; font-weight:700; display:flex; gap:.9rem; align-items:center; cursor:pointer
+    }
+    .accordion button:focus-visible{outline:none; box-shadow:var(--ring)}
+    .accordion .content{max-height:0; overflow:hidden; transition:max-height .25s ease}
+    .accordion .content p{padding:0 1rem 1rem; color:var(--muted)}
+    /* LISTS */
+    ul.clean{list-style:none; padding-left:0; margin:0}
+    ul.check li::before{content:"\f00c"; font-family:"Font Awesome 6 Free"; font-weight:900; color:var(--ok); margin-right:.6rem}
+    ul.cross li::before{content:"\f00d"; font-family:"Font Awesome 6 Free"; font-weight:900; color:var(--danger); margin-right:.6rem}
+    li+li{margin-top:.4rem}
+    /* FORM */
+    form{
+      display:grid; gap:.8rem
+    }
+    input, textarea{
+      width:100%; background:#0b1320; color:var(--ink); border:1px solid rgba(255,255,255,.12);
+      border-radius:12px; padding:.8rem; font:inherit
+    }
+    input:focus, textarea:focus{outline:none; box-shadow:var(--ring); border-color:transparent}
+    .note{font-size:.9rem; color:var(--muted)}
+    /* FOOTER */
+    footer{border-top:1px solid rgba(255,255,255,.08); padding:2rem 0; color:var(--muted)}
+    .footlinks{display:flex; gap:1rem; flex-wrap:wrap}
+    .pill{display:inline-flex; align-items:center; gap:.45rem; padding:.45rem .7rem; border-radius:999px; background:#0b1320; border:1px solid rgba(255,255,255,.1)}
+    .sp{height:1px; background:linear-gradient(90deg, rgba(0,255,200,.0), rgba(0,255,200,.3), rgba(0,255,200,.0)); margin:2rem 0}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav aria-label="Primary">
+    <div class="wrap bar">
+      <a class="brand" href="https://3dvr.tech" target="_blank" rel="noopener">
+        <i class="fa-solid fa-cubes"></i> <span>3DVR Politics</span>
+      </a>
+      <div class="navlinks" role="navigation">
+        <a href="#principles">Principles</a>
+        <a href="#myths">Myths & Facts</a>
+        <a href="#toolkit">City Hall Toolkit</a>
+        <a href="#planks">Policy Planks</a>
+        <a href="#join" class="pill"><i class="fa-regular fa-handshake"></i><span>Join</span></a>
+      </div>
+      <button class="cta" onclick="document.getElementById('join').scrollIntoView({behavior:'smooth'})">
+        Take Action
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero wrap">
+    <span class="badge"><i class="fa-solid fa-bullhorn"></i> People-First. No-Nonsense.</span>
+    <h1>Let’s take back our governments with policies that put people first.</h1>
+    <p class="lead">
+      We believe <strong>housing is a human right</strong> and that we must <strong>get money out of politics</strong>.
+      It starts locally—by showing up at city hall, learning the process, and organizing our neighbors.
+    </p>
+    <div class="actions">
+      <a class="btn primary" href="#toolkit"><i class="fa-solid fa-city"></i> City Hall Starter Kit</a>
+      <a class="btn" href="#planks"><i class="fa-solid fa-scale-balanced"></i> Policy Planks</a>
+      <a class="btn" href="https://3dvr.tech" target="_blank" rel="noopener"><i class="fa-solid fa-link"></i> Back to 3DVR</a>
+    </div>
+  </header>
+
+  <div class="wrap"><div class="sp" aria-hidden="true"></div></div>
+
+  <!-- PRINCIPLES -->
+  <section id="principles" class="wrap">
+    <h2 class="kicker">No-Nonsense Principles</h2>
+    <div class="grid cols-3">
+      <article class="card">
+        <span class="tag"><i class="fa-regular fa-compass"></i> Clarity</span>
+        <h3>Plain language, clear goals</h3>
+        <p>Policies must be explained simply with measurable outcomes, timelines, and accountability built in.</p>
+      </article>
+      <article class="card">
+        <span class="tag"><i class="fa-solid fa-people-group"></i> Participation</span>
+        <h3>Decisions with the people</h3>
+        <p>Public meetings, open data, and community oversight—not backroom deals or pay-to-play.</p>
+      </article>
+      <article class="card">
+        <span class="tag"><i class="fa-solid fa-clipboard-check"></i> Results</span>
+        <h3>Track, publish, adjust</h3>
+        <p>If a policy isn’t working, fix it fast. Publish metrics so everyone can see progress and gaps.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- MYTHS & FACTS -->
+  <section id="myths" class="wrap">
+    <h2 class="kicker">Dispelling Common Myths</h2>
+    <div class="grid">
+      <div class="accordion">
+        <div class="item">
+          <button aria-expanded="false"><i class="fa-solid fa-circle-question"></i> Myth: “City hall is for insiders only.”</button>
+          <div class="content"><p><strong>Fact:</strong> Public comment and participation are rights. Agendas are public, and your voice can shift votes—especially when neighbors show up together.</p></div>
+        </div>
+        <div class="item">
+          <button aria-expanded="false"><i class="fa-solid fa-circle-question"></i> Myth: “Nothing changes locally.”</button>
+          <div class="content"><p><strong>Fact:</strong> Zoning, budgets, housing approvals, policing policies, and transit routes are decided locally. Local wins stack up to national change.</p></div>
+        </div>
+        <div class="item">
+          <button aria-expanded="false"><i class="fa-solid fa-circle-question"></i> Myth: “Only money moves policy.”</button>
+          <div class="content"><p><strong>Fact:</strong> Organized voters, consistent testimony, and transparent data beat lobby checks when communities persist and track votes.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CITY HALL TOOLKIT -->
+  <section id="toolkit" class="wrap">
+    <h2 class="kicker">City Hall Starter Kit</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3><i class="fa-solid fa-list-check"></i> Quick Start (Tonight or This Week)</h3>
+        <ul class="clean check">
+          <li>Find your council’s meeting calendar & sign up for agenda emails.</li>
+          <li>Read the agenda; pick one housing/ethics item to follow.</li>
+          <li>Prepare a 60–120 second public comment with one clear ask.</li>
+          <li>Bring 2–3 neighbors; share a one-page fact sheet (below).</li>
+          <li>After the vote, post what happened and tag officials (be respectful, cite sources).</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3><i class="fa-solid fa-file-lines"></i> One-Pager Template</h3>
+        <p class="note">Copy/paste this into your doc tool and add local data.</p>
+        <pre style="white-space:pre-wrap; background:#0b1320; padding:.8rem; border-radius:12px; border:1px solid rgba(255,255,255,.1)">
+Title: [Item name & meeting date]
+The Ask (1–2 sentences): Approve/Amend/Reject [item] because [reason].
+Why It Matters: 3 bullets with local stats.
+Who Benefits: renters, homeowners, small biz, unhoused neighbors, etc.
+Accountability: Publish monthly metrics on [X], with a 90-day review.
+Contact: Your group name & email/phone.</pre>
+        <div style="margin-top:.6rem">
+          <a class="btn" href="#" onclick="alert('Hook this to a real file later.'); return false;"><i class="fa-regular fa-file-pdf"></i> Download as PDF (coming soon)</a>
+        </div>
+      </div>
+    </div>
+    <div class="grid cols-3" style="margin-top:1.2rem">
+      <div class="card">
+        <h3><i class="fa-solid fa-magnifying-glass-location"></i> Find Agendas</h3>
+        <p>Search: <em>“[Your City] city council agenda”</em>. Bookmark the clerk’s page. Many cities allow email or RSS alerts.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fa-regular fa-comment-dots"></i> Speak Effectively</h3>
+        <ul class="clean">
+          <li><strong>Lead with the ask</strong> in the first 10 seconds.</li>
+          <li>Use <strong>one story + one stat</strong>.</li>
+          <li>Respect the clock; share a link to full remarks.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3><i class="fa-solid fa-clipboard-list"></i> Track the Votes</h3>
+        <p>Create a simple spreadsheet of items, sponsors, votes, and quotes. Publish after each meeting.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- POLICY PLANKS -->
+  <section id="planks" class="wrap">
+    <h2 class="kicker">Policy Planks</h2>
+    <div class="grid cols-2">
+      <article class="card">
+        <span class="tag"><i class="fa-solid fa-house-chimney"></i> Housing as a Human Right</span>
+        <h3>Homes first, bureaucracy second</h3>
+        <ul class="clean check">
+          <li><strong>Build & convert faster:</strong> streamline approvals for affordable and workforce housing; convert vacant buildings.</li>
+          <li><strong>Protect tenants & small landlords:</strong> right-to-counsel, fair mediation, targeted relief over corporate buy-ups.</li>
+          <li><strong>Transparency:</strong> publish monthly permits, completions, vacancies, and waitlist metrics.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="tag"><i class="fa-solid fa-scale-balanced"></i> Get Money Out of Politics</span>
+        <h3>Democracy, not pay-to-play</h3>
+        <ul class="clean check">
+          <li><strong>Local clean-elections:</strong> small-donor matching and strict contractor/lobbyist limits.</li>
+          <li><strong>Real-time disclosure:</strong> publish contributions and independent expenditures in downloadable open data.</li>
+          <li><strong>Conflict walls:</strong> recusal rules with public statements and audit trails.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- JOIN / PLEDGE -->
+  <section id="join" class="wrap">
+    <h2 class="kicker">Pledge & Participate</h2>
+    <div class="grid cols-2">
+      <div class="card">
+        <h3><i class="fa-regular fa-handshake"></i> I’m in</h3>
+        <p class="note">Pledge to speak at one meeting in the next 30 days and invite two neighbors.</p>
+        <form onsubmit="event.preventDefault(); submitPledge(this);">
+          <input name="name" aria-label="Your name" placeholder="Your name" required />
+          <input type="email" name="email" aria-label="Your email" placeholder="Your email" required />
+          <input name="city" aria-label="Your city" placeholder="City, State/Country" />
+          <textarea name="plan" rows="4" placeholder="My first action will be… (e.g., speak on Item 4 next Tuesday)"></textarea>
+          <button class="cta" type="submit"><i class="fa-solid fa-paper-plane"></i> Pledge & Get Toolkit Updates</button>
+          <p class="note">No spam. You can export/delete your info anytime. Backend hookup coming soon.</p>
+        </form>
+      </div>
+      <div class="card">
+        <h3><i class="fa-solid fa-share-nodes"></i> Spread the Word</h3>
+        <p>Share this page and invite three friends to your next meeting.</p>
+        <div class="footlinks" style="margin-top:.6rem">
+          <a class="pill" href="#" onclick="share('Check out 3DVR Politics — housing as a human right & money out of politics. Join me at city hall!'); return false;"><i class="fa-brands fa-x-twitter"></i> Post</a>
+          <a class="pill" href="#" onclick="copyLink(); return false;"><i class="fa-regular fa-copy"></i> Copy Link</a>
+          <a class="pill" href="https://3dvr.tech" target="_blank" rel="noopener"><i class="fa-solid fa-house"></i> 3dvr.tech</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section id="resources" class="wrap">
+    <h2 class="kicker">Resources (Add Your City)</h2>
+    <div class="grid cols-3">
+      <div class="card">
+        <h3><i class="fa-regular fa-calendar"></i> Meeting Calendars</h3>
+        <p class="note">Link your city council, planning commission, and housing authority calendars here.</p>
+        <ul class="clean">
+          <li><a href="#">[City] Council Calendar</a></li>
+          <li><a href="#">[City] Planning Commission</a></li>
+          <li><a href="#">[County/Region] Housing Authority</a></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3><i class="fa-solid fa-database"></i> Open Data & Dashboards</h3>
+        <p class="note">Permits, approvals, code enforcement, budget & campaign finance portals.</p>
+        <ul class="clean">
+          <li><a href="#">Permits & Approvals</a></li>
+          <li><a href="#">Budget Dashboard</a></li>
+          <li><a href="#">Campaign Finance</a></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3><i class="fa-solid fa-book-open"></i> How-To Guides</h3>
+        <ul class="clean">
+          <li><a href="#">How to Read an Agenda</a></li>
+          <li><a href="#">Writing a 2-Minute Comment</a></li>
+          <li><a href="#">Tracking Votes in a Spreadsheet</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="sp" aria-hidden="true"></div></div>
+
+  <!-- FOOTER -->
+  <footer class="wrap" role="contentinfo">
+    <div class="footlinks">
+      <span>Made by <a href="https://3dvr.tech" target="_blank" rel="noopener">3dvr.tech</a></span>
+      <span>•</span>
+      <a href="#principles">Principles</a>
+      <a href="#toolkit">Toolkit</a>
+      <a href="#planks">Planks</a>
+      <a href="#join">Join</a>
+    </div>
+    <p style="margin-top:.6rem">Open-source, people-first civic action. Fork this and localize it for your community.</p>
+  </footer>
+
+  <script>
+    // Accordion behavior
+    document.querySelectorAll('.accordion .item').forEach(item=>{
+      const btn=item.querySelector('button');
+      const content=item.querySelector('.content');
+      btn.addEventListener('click', ()=>{
+        const expanded = btn.getAttribute('aria-expanded')==='true';
+        document.querySelectorAll('.accordion button[aria-expanded="true"]').forEach(b=>{
+          b.setAttribute('aria-expanded','false');
+          b.parentElement.querySelector('.content').style.maxHeight = 0;
+        });
+        if(!expanded){
+          btn.setAttribute('aria-expanded','true');
+          content.style.maxHeight = content.scrollHeight+'px';
+        }
+      });
+    });
+
+    // Simple pledge stub (no backend yet)
+    function submitPledge(form){
+      const data = Object.fromEntries(new FormData(form).entries());
+      try{
+        const existing = JSON.parse(localStorage.getItem('pledges')||'[]');
+        existing.push({...data, ts:new Date().toISOString()});
+        localStorage.setItem('pledges', JSON.stringify(existing));
+        alert('Thanks for pledging! We saved this locally for now. You can export it later.');
+        form.reset();
+      }catch(e){
+        alert('Saved locally failed. You can screenshot your pledge meanwhile.');
+      }
+    }
+
+    // Share helpers
+    function copyLink(){
+      const url = location.href;
+      navigator.clipboard.writeText(url).then(()=>alert('Link copied to clipboard'));
+    }
+    function share(text){
+      const url = encodeURIComponent(location.href);
+      const msg = encodeURIComponent(text);
+      const shareUrl = `https://twitter.com/intent/tweet?text=${msg}&url=${url}`;
+      window.open(shareUrl, '_blank', 'noopener');
+    }
+
+    // Reduce motion preference
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      document.querySelectorAll('.accordion .content').forEach(c=>c.style.transition='none');
+    }
+  </script>
+</body>
+</html>
